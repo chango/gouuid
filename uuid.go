@@ -16,7 +16,7 @@ import (
 	"regexp"
 )
 
-// The UUID reserved variants. 
+// The UUID reserved variants.
 const (
 	ReservedNCS       byte = 0x80
 	ReservedRFC4122   byte = 0x40
@@ -90,7 +90,7 @@ func NewV3(ns *UUID, name []byte) (u *UUID, err error) {
 	u = new(UUID)
 	// Set all bits to MD5 hash generated from namespace and name.
 	u.setBytesFromHash(md5.New(), ns[:], name)
-	u.setVariant(ReservedRFC4122)
+	u.setVariant(ReservedNCS)
 	u.setVersion(3)
 	return
 }
